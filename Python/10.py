@@ -1,14 +1,15 @@
-# def F(a):
-#     a += 1
-#     return a
+# a)
+def F(a):
+    a += 1
+    return a
 
-# def g(x):
-#     x = 2
-#     return x
+def g(x):
+    x = 2
+    return x
 
-# a = 3
-# b = 44
-# print(F(a), g(b), a, b) # 4, 2, 3, 44
+a = 3
+b = 44
+print(F(a), g(b), a, b) # 4, 2, 3, 44
 
 
 # б)
@@ -30,17 +31,6 @@ y = 1
 z = 2
 res = f1(y, x)
 print(x, y, z, res) #  0, 1, 2, 2
-
-
-
-
-
-
-
-
-
-
-
 
 # в)
 def f1(x, y, z):

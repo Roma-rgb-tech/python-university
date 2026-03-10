@@ -90,7 +90,7 @@ def circle_operations():
     # КРОК 6: Робота з колом
     try:
         l = float(input("Введіть довжину кола (L): "))
-        if l > 0:
+        if l > 2:
             radius = l / (2 * math.pi)
             area = math.pi * radius**2
             print(f"Радіус (r): {radius:.4f}")

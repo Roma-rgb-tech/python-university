@@ -10,5 +10,3 @@ print("Perimeter of triangle: ", perimeter)
 x = float(input("Enter the cordinate x: "))
 y = float(input("Enter the cordinate y: "))
 print(f"Points received: ({x}; {y})")
-
-

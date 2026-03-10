@@ -1,88 +1,25 @@
-// Знайти перший індекс заданого елемента в масиві. На основі ітеративних алгоритмів
+// // Знайти перший індекс заданого елемента в масиві.
 #include <iostream>
 using namespace std;
 
-int findIndex(int arr[], int n, int key) {
-    for (int i = 0; i < n; i++) {
-        if (arr[i] == key) {
-            return i;   
-        }
-    }
-    return -1;  
+int iter(int arr[], int n, int x) {
+    for (int i = 0; i < n; i++)
+        if (arr[i] == x) return i;
+    return -1;
+}
+
+int recur(int arr[], int n, int x, int i = 0) {
+    if (i == n) return -1;           
+    if (arr[i] == x) return i;     
+    return recur(arr, n, x, i + 1);  
 }
 
 int main() {
-    int n;
+    int a[] = {10, 20, 30, 40};
+    int n = 4, x = 30;
 
-    cout << "Введіть кількість елементів: ";
-    cin >> n;
-
-    int arr[100];
-
-    for (int i = 0; i < n; i++) {
-        cout << "Введіть елемент: ";
-        cin >> arr[i];
-    }
-
-    int key;
-    cout << "Введіть число для пошуку: ";
-    cin >> key;
-
-    int index = findIndex(arr, n, key);
-
-    if (index != -1)
-        cout << "Перший індекс = " << index << endl;
-    else
-        cout << "Елемент не знайдено" << endl;
-
-
-}
-
-
-
-// Видалити з базового вектора максимальне значення. На основі рекуративних алгоритмів
-#include <iostream>
-#include <vector>
-using namespace std;
-
-
-int findMax(const vector<int>& v, int index = 0) {
-    if (index == v.size() - 1) return v[index];
-    int maxRest = findMax(v, index + 1);
-    return (v[index] > maxRest) ? v[index] : maxRest;
-}
-
-
-void removeMax(vector<int>& v, int maxVal, int index = 0) {
-    if (index == v.size()) return;
-    if (v[index] == maxVal) {
-        v.erase(v.begin() + index);
-        return;
-    }
-    removeMax(v, maxVal, index + 1);
-}
-
-int main() {
-    int n;
-    cout << "Введіть кількість елементів: ";
-    cin >> n;
-
-    vector<int> v(n);
-    cout << "Введіть елементи: ";
-    for (int i = 0; i < n; i++) cin >> v[i];
-
-    cout << "Базовий вектор: ";
-    for (int x : v) cout << x << " ";
-    cout << endl;
-
-    int maxVal = findMax(v);
-    cout << "Максимальне значення: " << maxVal << endl;
-
-    removeMax(v, maxVal);
-
-    cout << "Вектор після видалення максимального: ";
-    for (int x : v) cout << x << " ";
-    cout << endl;
+    cout << "Ітеративна: " << iter(a, n, x) << endl;
+    cout << "Рекурсивна: " << recur(a, n, x) << endl;
 
     return 0;
 }
