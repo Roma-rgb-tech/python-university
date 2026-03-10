@@ -1,4 +1,4 @@
-// // Знайти перший індекс заданого елемента в масиві.
+// Знайти перший індекс заданого елемента в масиві.
 #include <iostream>
 using namespace std;
 
@@ -20,6 +20,40 @@ int main() {
 
     cout << "Ітеративна: " << iter(a, n, x) << endl;
     cout << "Рекурсивна: " << recur(a, n, x) << endl;
-
-    return 0;
 }
+
+
+// Видалити з базового вектора максимальне значення.
+#include <iostream>
+#include <vector>
+using namespace std;
+
+void removeMaxIter(vector<int>& v) {
+    if (v.empty()) return;
+    auto it = max_element(v.begin(), v.end());
+    v.erase(it);
+}
+
+
+int findMaxIdx(vector<int>& v, int n, int maxIdx) {
+    if (n == v.size()) return maxIdx; 
+    if (v[n] > v[maxIdx]) maxIdx = n; 
+    return findMaxIdx(v, n + 1, maxIdx); 
+}
+
+int main() {
+    vector<int> v = {5, 12, 3, 12, 8};
+
+    removeMaxIter(v); 
+
+    int m = findMaxIdx(v, 0, 0); 
+    v.erase(v.begin() + m);
+
+    for (int x : v) cout << x << " "; 
+}
+
+
+
+
+
+
